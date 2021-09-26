@@ -1,0 +1,47 @@
+<input
+  placeholder="Please enter your Username"
+  class="form-control asset-input"
+  type="text "
+  (keyup.enter)="Search(name)"
+  #name
+/><br />
+<button class="btn btn-primary asset-button" (click)="Search(name)">
+  Search</button
+><br /><br />
+<h1 *ngIf="error" class="error">
+  'Sorry Account not found! Please check the Username and try again'
+</h1>
+<app-spinner></app-spinner>
+<app-user
+  img="{{ img }}"
+  name="{{ username }}"
+  bio="{{ bio }}"
+  location="{{ location }}"
+  twitter="{{ twitter }}"
+  url="{{ url }}"
+></app-user>
+<div
+  fxLayout="row wrap"
+  fxLayoutGap=" grid"
+  style="margin-left: 150px; margin-top: 50px"
+>
+  <div
+    fxFlex="50%"
+    fxFlex.xs="100%"
+    fxFlex.sm="100%"
+    *ngFor="
+      let repo of repos
+        | paginate: { itemsPerPage: 10, currentPage: page, totalLength: total };
+      let desc = index
+    "
+  >
+    <app-repositories
+      repos="{{ repo }}"
+      desc="{{ descs[desc] }}
+          "
+      tech="{{ tech[desc] }}"
+    ></app-repositories
+    ><br />
+  </div>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

@@ -1,0 +1,48 @@
+<div id="desktop">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="image-cropper post-thumb">
+          <img src="{{ img }}" alt="" />
+        </div>
+        <p style="margin-top: 20px">
+          <i *ngIf="url" class="fas fa-paperclip"></i> {{ url }}
+        </p>
+      </div>
+      <div class="col-6">
+        <h1>{{ username }}</h1>
+
+        <p>{{ bio }}</p>
+
+        <p>
+          <i *ngIf="location" class="fas fa-map-marker-alt"></i> {{ location }}
+        </p>
+
+        <p>{{ twitter }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="mobile">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="image-cropper post-thumb">
+          <img src="{{ img }}" alt="" />
+        </div>
+        <p style="margin-top: 20px">{{ url }}</p>
+      </div>
+      <div class="col-6" style="margin-left: 10px">
+        <h1>{{ username }}</h1>
+
+        <p>{{ bio }}</p>
+
+        <p>
+          <i *ngIf="location" class="fas fa-map-marker-alt"></i> {{ location }}
+        </p>
+
+        <p>{{ twitter }}</p>
+      </div>
+    </div>
+  </div>
+</div>
